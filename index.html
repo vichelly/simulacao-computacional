@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação Computacional</title>
+    <link rel="icon" type="image/x-icon" href="./images/robot.png">
+    <link rel="stylesheet" href="./components/css/style.css">
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <section id="one" class="hidden">
+        <header>
+            <div class="logo">
+                    <h5>Simulação Computacional</h5>
+            </div>
+        </header>
+    </section>
+    <section id="two">
+        <h1 >Descrição do Projeto</h1>
+        <p class=" description">
+           Objetivo: Estudar o poço de potencial infinito utilizando linguagem de programação
+            escolhida pelo grupo.
+
+        </p>
+        <p class=" description">
+            Simulação (elementos mínimos): O simulador deve ter os elementos de entrada e
+            saída esquematizados nos quadros abaixo. Não é necessário que estejam ou apareçam
+            na mesma ordem - vai depender do raciocínio do seu grupo, criatividade e
+            originalidade. Por ex., poderia criar um menu inicial em que se escolhe a partícula a ser
+            confinada, depois aparecem outras opções de entrada de dados.
+        </p>
+        <p class=" description">
+            Condições: Use as constantes físicas e massa das partículas para os cálculos com 4
+            algarismos significativos. Use as constantes matemáticas definidas pelo programa (ex.:
+            use ; não use 3,14).
+        </p>
+        <p class="description">
+            Objetivo de aprendizado: Estudar/Saber/Entender que: 1. O confinamento de
+            partículas quânticas leva à quantização dos níveis de energia da partícula; 2. Salto
+            quântico; 3. Variação de níveis de energia através da emissão e absorção de fótons; 4.
+            Função de onda quântica independente do tempo; 5. |Ψ 𝑥,𝑡 |
+            2 é a função de
+            distribuição de probabilidade. 
+        </p>
+    </section>
+    <section>
+        <div class="amigos">
+            
+           
+            <br><br>
+            <div class="description-tasks">
+                <h3 class="">Divisão de tarefas</h3> <br>
+                <br><p class="">• Aprofundamento físico teorico e desenvolvimento de fórmulas matemáticas: Juan Caio e Rafael Leal. </p>
+                <br> <p class=""> • Desenvolvimento e design do site: Vitor Lucas Fujita Felício</p> <br>
+                <p class="">
+                    • Programação e implementação das fórmulas ( utilizamos o método de Extreme Programming "XP" para maximizar a qualidade do produto final ) : Vitor Lucas Fujita Felício e Juan Caio
+                </p>
+                <br>
+                <p class="">
+                    • Implementação e compreensão da biblioteca utilizada para os gráficos (Plotly): Rafael Leal
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="three" >
+        <div class="equipe">
+            <div class="membros">
+                <div class="me ">
+                    <img src="images/juan.jpeg" alt="">
+                    <h4>Juan Caio Paronitti Galera</h4>
+                    RA: 22.122.067-6
+                </div>
+                <div class="me ">
+                    <img src="images/vitor_lucas.jpeg" alt="">
+                    <h4>Vitor Lucas Fujita Felício</h4>
+                    RA: 22.122.077-5
+                </div>
+                <div class="me ">
+                    <img src="images/murilo.jpeg" alt="">
+                    <h4>Murilo da Fonseca Guimarães</h4>
+                    RA: 22.122.079-1
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section id="four" class="hidden">
+        <div class="positions">
+            <div>
+                <h2 align="center" >Digite a posição do robo:</h2><br>
+            </div>
+            <p align="center">OBS: o x tem que ser entre 0 e 9 e o y entre 0 e 6</p> <br>
+            <div class="xey hidden">
+                <input id="XInicialRobo" required="required" type="text">
+                <span>posição do robo em X</span>
+            </div>
+            <div class="xey hidden">
+                <input id="YInicialRobo" required="required" type="text">
+                <span>posição do robo em Y</span>
+            </div>
+            <div class="clean">
+                <button class="btn hidden" onclick="iniciarPrograma()">Entrar Valores</button>
+            </div>
+        </div>
+    </section> -->
+    <section id="four" class="hidden">
+        <div class="positions">
+            <div>
+                <h2 align="center" >Calcular os níveis de energia</h2><br>
+            </div>
+            <p align="center">OBS: o x tem que ser entre 0 e 9 e o y entre 0 e 6</p> <br>
+            <div class="xey hidden">
+                <input id="CalcularOsNiveisDeEnergialarguraDaCaixa" required="required" type="text">
+                <span>Largura da caixa (L)</span>
+            </div>
+            <div class="xey hidden">
+                <input id="CalcularOsNiveisDeEnergianInicial" required="required" type="text">
+                <span>n inicial da partícula (ni)</span>
+            </div>
+            <div class="xey hidden">
+                <input id="CalcularOsNiveisDeEnergianFinal" required="required" type="text">
+                <span>n final da partícula (nf)</span>
+            </div>
+            <div class="clean">
+                <button class="btn hidden" onclick="CalcularOsNiveisDeEnergia()">Entrar Valores</button>
+            </div>
+        </div>
+        <div id="respostaCalcularOsNiveisDeEnergia" >
+            <h2>Resposta: </h2>
+            <h3 class="CalcularOsNiveisDeEnergiaResposta"></h3>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <section id="four" class="hidden">
+        <div class="positions">
+            <div>
+                <h2 align="center" >Calcular energia do nível quântico</h2><br>
+            </div>
+            <p align="center">OBS: o x tem que ser entre 0 e 9 e o y entre 0 e 6</p> <br>
+            <div class="xey hidden">
+                <input id="CalcularEnergiaDoNivelQuanLarguraDaCaixa" required="required" type="text">
+                <span>Largura da caixa (L)</span>
+            </div>
+            <div class="xey hidden">
+                <input id="CalcularEnergiaDoNivelQuannicial" required="required" type="text">
+                <span>n inicial da partícula (ni)</span>
+            </div>
+            <div class="xey hidden">
+                <input id="CalcularEnergiaDoNivelQuannFinal" required="required" type="text">
+                <span>n final da partícula (nf)</span>
+            </div>
+            <div class="clean">
+                <button class="btn hidden" onclick="CalcularEnergiaNivelQuantico()">Entrar Valores</button>
+            </div>
+        </div>
+        <div id="respostaEnergiaDoNivelQuan" >
+            <h2>Resposta: </h2>
+            <h3 class="CalcularEnergiaDoNivelQuanResposta"></h3>
+            <h3 class="CalcularEnergiaDoNivelQuanResposta2"></h3>
+            <h3 class="CalcularEnergiaDoNivelQuanResposta3"></h3>
+            <h3 class="CalcularEnergiaDoNivelQuanResposta4"></h3>
+        </div>
+    </section>
+
+
+
+
+
+    <div id="TempoInter" class="dom" class="hidden">
+        <h2 id="intercept" class="hidden" align="center"></h2>
+    </div>
+    <section class="hidden" id="graphs" class="graf-section">
+        <div class="graf-title"  class="hidden" >
+            <h2>Gráficos gerados pelo programa</h2>
+        </div>
+        <div class="graf-container">
+            <div class="graficos">
+                <h2 class="graf-subtitles" class="hidden" >Gráfico das trajetórias da bola e do robô em um plano xy, até o ponto de interceptação:</h2>
+                <section class="hidden">
+                    <p>Gráfico da trajetória do robo e da bola até o instante da interceptação:</p>
+                    <div id="trajetoria" class="graf-canvas"></div>
+                </section>
+                <section class="hidden">
+                    <p>Gráfico da componente x da posição pelo tempo:</p>
+                    <div id="xRoboBola" class="graf-canvas"></div>
+                </section>
+                <section class="hidden">
+                    <p>Gráfico da componente y da posição pelo tempo:</p>
+                    <div id="yRoboBola" class="graf-canvas"></div>
+                </section>    
+                </div>
+            <div class="graficos">
+                <h2 class="graf-subtitles"  class="hidden" >Gráfico dos componentes vx e vy da velocidade da bola e do robô em função do tempo t até o instante de interceptação:</h2>
+                <section class="hidden">    
+                    <p>Velocidade do Robo e da Bola no eixo X:</p>
+                    <div id="vxRoboBola" class="graf-canvas"></div>
+                </section>
+                <section class="hidden">
+                    <p>Velocidade do Robo e da Bola no eixo Y:</p>
+                    <div id="vyRoboBola" class="graf-canvas"></div>
+                </section>
+            </div>
+            <div class="graficos">
+                <h2 class="graf-subtitles"  class="hidden" >Gráfico dos componentes ax e ay da aceleração da bola e do robô em função do tempo t até o instante de interceptação:</h2>
+                <section class="hidden">
+                    <p>Gráfico da aceleração pelo tempo no eixo x:</p>
+                    <div id="axRoboBola" class="graf-canvas "></div>
+                </section>
+                <section class="hidden">    
+                    <p>Gráfico da aceleração pelo tempo no eixo y:</p>
+                    <div id="ayRoboBola" class="graf-canvas"></div>
+                </section>
+            </div>
+            <div class="graficos">
+                <h2 class="graf-subtitles" class="hidden" > Gráfico da distância relativa d entre o robô e a bola como função do tempo t até o instante de interceptação:</h2>
+                <section class="hidden">
+                    <div id="distanciaRelativa" class="graf-canvas"></div>
+                </section>    
+            </div>
+        </div>
+    </section>
+    <section id="info" id="six" class="hidden">
+        <div class="graf-title" class="hidden" >
+            <h2>Informações cinemáticas relevantes</h2>
+        </div>
+        <div class="infos">
+            <div>
+                <h3>Dados sobre o robo:</h3>
+                <div id="aceleracaoRobo"></div>
+                <div id="velocidadeMax" type="text"></div>
+                <div id="massaRobo" type="text"></div>
+            </div>
+            <br><br>
+            <div>
+                <h3>Posição da bola no momento da interceptação:</h3><br>
+                <p>
+                    <div id="vetorBolaXIntercept" type="text"></div>
+                </p>
+                <p>
+                    <div id="vetorBolaYIntercept" type="text"></div>
+                </p>
+            </div>
+            <br><br>
+            <div>
+                <h3>Posição do robo no momento da interceptação:</h3><br>
+                <p> 
+                    <div id="roboXIntercept" type="text"></div>
+                </p>
+                <p> 
+                    <div id="roboYIntercept" type="text"></div>
+                </p>
+            </div>
+            <br><br>
+            <div>
+                <h3>Velocidade da bola no momento da interceptação:</h3><br>
+                <p>
+                    <div id="velocidadeXBolaIntercept" type="text"></div>
+                </p>
+                <p> 
+                    <div id="velocidadeYBolaIntercept" type="text"></div>
+                </p>
+            </div>
+            <br><br>
+            <div>
+                <h3>Velocidade do robo no momento da interceptação:</h3><br>
+                <p> 
+                    <div id="velocidadeRoboXIntercept" type="text"></div>
+                </p>
+                <p> 
+                    <div id="velocidadeRoboYIntercept" type="text"></div>
+                </p>
+            </div>
+            <br><br>
+            <div>
+                <h3>Aceleração da bola:</h3><br>
+                <p> 
+                    <div id="aceleracaoXBola" type="text"></div>
+                </p>
+                <p> 
+                    <div id="aceleracaoYBola" type="text"></div>
+                </p>
+            </div>
+            <br><br>
+            <div>
+                <h3>Distância percorrida pelo Robo até o momento da interceptação:</h3><br>
+                <p> 
+                    <div id="distanciaRoboX" type="text"></div>
+                </p>
+                <p> 
+                    <div id="distanciaRoboY" type="text"></div>
+                </p>
+            </div>
+            <br><br>
+            <div>
+                <h3>Distância percorrida pela bola até o momento da interceptação:</h3><br>
+                <p> 
+                    <div id="distanciaBolaX" type="text"></div>
+                </p>
+                <p> 
+                    <div id="distanciaBolaY" type="text"></div>
+                </p>
+            </div>
+            <br><br>
+        </div>
+    </section>
+    <section id="graphs2">
+        <div class="graf-title" class="hidden" >
+            <h2>Aprofundamento 2</h2>
+        </div>
+        <div class="graficos">
+            <h2 class="graf-subtitles"  class="hidden" >Gráfico da posição X e Y do robo e da bola:</h2>
+            <section class="hidden">    
+                <p>Posição do robo e da bola  no eixo X e Y</p>
+                <div id="movObli" class="graf-canvas"></div>
+            </section>
+        </div>
+    </section>
+<footer>
+    <hr>
+    <img src="images/fei-ciencia.png" alt="FEI">
+</footer>
+<script src="./components/scripts/main.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</body>
+</html>
