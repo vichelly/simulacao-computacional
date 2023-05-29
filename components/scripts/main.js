@@ -1,38 +1,85 @@
 
 // x inicial e y inicial do robo
-function CalcularOsNiveisDeEnergia(){
-    let larguraDaCaixa = parseFloat(document.getElementById("CalcularOsNiveisDeEnergialarguraDaCaixa").value);
-    let nInicial = parseFloat(document.getElementById("CalcularOsNiveisDeEnergianInicial").value);
-    let nFinal = parseFloat(document.getElementById("CalcularOsNiveisDeEnergianFinal").value);
-
+function CalcularCaixaLargura() {
+    let Amplitude = parseFloat(document.getElementById("CalcularOsNiveisDeEnergialarguraDaCaixa01").value);
+    let nOnda = parseFloat(document.getElementById("CalcularOsNiveisDeEnergialarguraDaCaixa02").value);
+    let posX = parseFloat(document.getElementById("CalcularOsNiveisDeEnergialarguraDaCaixa03").value);
+    const protOuEle = document.querySelector("#protonOuEletron").value;
     const pi = Math.PI;
-  
-    const R1 = Math.sqrt(2 / larguraDaCaixa).toExponential(3);
-    const Ri = (nInicial * pi / larguraDaCaixa).toExponential(3);
-    const Rf = (nFinal * pi / larguraDaCaixa).toExponential(3);
 
-    const respostaElement = document.querySelector(".CalcularOsNiveisDeEnergiaResposta");
-    respostaElement.textContent = `Nível de energia com o Ni: ${R1}sen(${Ri} * x)\nNível de energia com o Nf: ${R1}sen(${Rf} * x)`;
+    let proton = 1.673e-27;
+    let eletron = 9.101e-31;
+    let massa;
 
-    const respostaCalcularOsNiveisDeEnergiaElement = document.getElementById("respostaCalcularOsNiveisDeEnergia");
-  respostaCalcularOsNiveisDeEnergiaElement.style.display = "block";
     
+
+    if (protOuEle == 1) {
+        massa = proton;
+    } else {
+        massa = eletron;
+    }
+
+    // largura da caixa
+    let Largura1 = (2 / (Amplitude ** 2));
+    let Largura2 = (Largura1 * 1E9);
+
+    const CalcularCaixaLargura0 = document.querySelector(".CalcularCaixaLargura0");
+    CalcularCaixaLargura0.textContent = `Largura da caixa: ${Largura2.toExponential(3)} nm`;
+
+    // nivel quantico da particula
+    let NQuantico = ((nOnda * Largura1) / pi);
+
+    const CalcularCaixaLargura1 = document.querySelector(".CalcularCaixaLargura1");
+    CalcularCaixaLargura1.textContent = `Nível quantico da particula: ${Math.round(NQuantico)}`;
+
+    // probabilidade
+    let probabilidade = (Amplitude ** 2) * (Math.sin(nOnda * posX * Largura1) ** 2);
+
+    const CalcularCaixaLargura2 = document.querySelector(".CalcularCaixaLargura2");
+    CalcularCaixaLargura2.textContent = `Probabilidade de encontrar a partícula na posição xP: ${probabilidade.toExponential(3)}`;
+
+    const respostaCalcularOsNiveisDeEnergiaElement = document.getElementById("respostaCalcularCaixaLargura");
+    respostaCalcularOsNiveisDeEnergiaElement.style.display = "block";
 }
+
+
+
+
 
 function CalcularEnergiaNivelQuantico() {
     let larguraDaCaixa = parseFloat(document.getElementById("CalcularEnergiaDoNivelQuanLarguraDaCaixa").value);
     let nInicial = parseFloat(document.getElementById("CalcularEnergiaDoNivelQuannicial").value);
     let nFinal = parseFloat(document.getElementById("CalcularEnergiaDoNivelQuannFinal").value);
+    
   
+    let proton = 1.673**-27;
+    let eletron = 9.101**-31; 
+    let massa;
+
+    const protOuEle = document.querySelector("#protonOuEletron");
+    
+    if(protOuEle == 1){
+        massa = proton;
+    }else{
+        massa = eletron;
+    }
     const h = 6.626E-34;
     const convEV = 1.602E-19;
     const pi = Math.PI;
-    const MassaEletron = 9.11e-31;
+    
 
-    let Ei = (nInicial ** 2 * h ** 2) / (8 * MassaEletron * larguraDaCaixa ** 2);
+    const R1 = Math.sqrt(2 / larguraDaCaixa).toExponential(3);
+    const Ri = (nInicial * pi / larguraDaCaixa).toExponential(3);
+    const Rf = (nFinal * pi / larguraDaCaixa).toExponential(3);
+
+    const respostaElement0 = document.querySelector(".CalcularEnergiaDoNivelQuanResposta0");
+    respostaElement0.textContent = `Nível de energia com o Ni: ${R1}sen(${Ri} * x)\nNível de energia com o Nf: ${R1}sen(${Rf} * x)`;
+
+
+    let Ei = (nInicial ** 2 * h ** 2) / (massa*8*(larguraDaCaixa**2));
     let EiJ = Ei / convEV;
 
-    let Ef = (nFinal ** 2 * h ** 2) / (8 * MassaEletron * larguraDaCaixa ** 2);
+    let Ef = (nFinal ** 2 * h ** 2) / (massa*8*(larguraDaCaixa**2));
     let EfJ = Ef / convEV;
 
     const respostaElement = document.querySelector(".CalcularEnergiaDoNivelQuanResposta");
@@ -50,16 +97,96 @@ function CalcularEnergiaNivelQuantico() {
     }
     
 
-    VelI = Math.sqrt((2 * EiJ) / MassaEletron);
-    VelF = Math.sqrt((2 * EfJ) / MassaEletron);
+    VelI = Math.sqrt((2 * EiJ) / massa);
+    VelF = Math.sqrt((2 * EfJ) / massa);
 
     const respostaFotonVelocidade = document.querySelector(".CalcularEnergiaDoNivelQuanResposta2");
 
-    respostaFotonVelocidade.textContent = `Energia do fóton: ${Efoton} J Velocidade inicial da partícula: ${VelI.toExponential(3)} m/s Velocidade final da partícula: ${VelF.toExponential(3)} m/s`;
+    respostaFotonVelocidade.textContent = `Energia do fóton: ${Efoton} J Velocidade inicial da partícula: ${VelI.toExponential(3)} m/s Velocidade final da partícula: ${VelF.toExponential(3)} m/s`; 
+
+
+    let broglieInicial = h/(Math.sqrt(2*massa*Ei));
+    let broglieFinal = h/(Math.sqrt(2*massa*Ef));
+
+    const respostaBroglie = document.querySelector(".CalcularEnergiaDoNivelQuanResposta3");
+
+    respostaBroglie.textContent = `Broglie Inicial: ${broglieInicial}  Broglie Final: ${broglieFinal}`;
+    
 
 
 
-    /* respostaFotonVelocidade.textContent = `Energia do fóton: ${Efoton.toFixed(3)} J<br>Velocidade inicial da partícula: ${VelI.toFixed(3)} m/s<br>Velocidade final da partícula: ${VelF.toFixed(3)} m/s`; */
+
+    const respostaEnergiaDoNivelQuanElement = document.getElementById("respostaEnergiaDoNivelQuan");
+    respostaEnergiaDoNivelQuanElement.style.display = "block";
+  }
+
+
+  function CalcularEnergiaNivelQuantico() {
+    let larguraDaCaixa = parseFloat(document.getElementById("CalcularEnergiaDoNivelQuanLarguraDaCaixa").value);
+    let nInicial = parseFloat(document.getElementById("CalcularEnergiaDoNivelQuannicial").value);
+    let nFinal = parseFloat(document.getElementById("CalcularEnergiaDoNivelQuannFinal").value);
+    
+  
+    let proton = 1.673**-27;
+    let eletron = 9.101**-31; 
+    let massa;
+
+    const protOuEle = document.querySelector("#protonOuEletron");
+    
+    if(protOuEle == 1){
+        massa = proton;
+    }else{
+        massa = eletron;
+    }
+    const h = 6.626E-34;
+    const convEV = 1.602E-19;
+    const pi = Math.PI;
+    
+
+    const R1 = Math.sqrt(2 / larguraDaCaixa).toExponential(3);
+    const Ri = (nInicial * pi / larguraDaCaixa).toExponential(3);
+    const Rf = (nFinal * pi / larguraDaCaixa).toExponential(3);
+
+    const respostaElement0 = document.querySelector(".CalcularEnergiaDoNivelQuanResposta0");
+    respostaElement0.textContent = `Nível de energia com o Ni: ${R1}sen(${Ri} * x)\nNível de energia com o Nf: ${R1}sen(${Rf} * x)`;
+
+
+    let Ei = (nInicial ** 2 * h ** 2) / (massa*8*(larguraDaCaixa**2));
+    let EiJ = Ei / convEV;
+
+    let Ef = (nFinal ** 2 * h ** 2) / (massa*8*(larguraDaCaixa**2));
+    let EfJ = Ef / convEV;
+
+    const respostaElement = document.querySelector(".CalcularEnergiaDoNivelQuanResposta");
+    respostaElement.textContent = `Energia do nível quântico com o Ni: ${Ei.toExponential(3)} J, ou ${EiJ.toExponential(3)} eV Energia do nível quântico com o Nf: ${Ef.toExponential(3)} J, ou ${EfJ.toExponential(3)} eV`;
+
+
+    let VelI, VelF;
+    let Efoton = 0;
+
+    if (Ei > Ef){
+        Efoton = Ei - Ef
+    }
+    else if (Ef > Ei) {
+    Efoton = EfJ - EiJ
+    }
+    
+
+    VelI = Math.sqrt((2 * EiJ) / massa);
+    VelF = Math.sqrt((2 * EfJ) / massa);
+
+    const respostaFotonVelocidade = document.querySelector(".CalcularEnergiaDoNivelQuanResposta2");
+
+    respostaFotonVelocidade.textContent = `Energia do fóton: ${Efoton} J Velocidade inicial da partícula: ${VelI.toExponential(3)} m/s Velocidade final da partícula: ${VelF.toExponential(3)} m/s`; 
+
+
+    let broglieInicial = h/(Math.sqrt(2*massa*Ei));
+    let broglieFinal = h/(Math.sqrt(2*massa*Ef));
+
+    const respostaBroglie = document.querySelector(".CalcularEnergiaDoNivelQuanResposta3");
+
+    respostaBroglie.textContent = `Broglie Inicial: ${broglieInicial}  Broglie Final: ${broglieFinal}`;
+    
 
 
 

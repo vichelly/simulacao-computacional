@@ -20,9 +20,8 @@
     <section id="two">
         <h1 >Descrição do Projeto</h1>
         <p class=" description">
-           Objetivo: Estudar o poço de potencial infinito utilizando linguagem de programação
-            escolhida pelo grupo.
-
+           Objetivo: Estudar o poço de potencial infinito utilizando linguagem de programação escolhida pelo grupo.
+            JAVASCRIPT FOI A LINGUAGEM ESCOLHIDA 
         </p>
         <p class=" description">
             Simulação (elementos mínimos): O simulador deve ter os elementos de entrada e
@@ -45,25 +44,6 @@
             distribuição de probabilidade. 
         </p>
     </section>
-    <section>
-        <div class="amigos">
-            
-           
-            <br><br>
-            <div class="description-tasks">
-                <h3 class="">Divisão de tarefas</h3> <br>
-                <br><p class="">• Aprofundamento físico teorico e desenvolvimento de fórmulas matemáticas: Juan Caio e Rafael Leal. </p>
-                <br> <p class=""> • Desenvolvimento e design do site: Vitor Lucas Fujita Felício</p> <br>
-                <p class="">
-                    • Programação e implementação das fórmulas ( utilizamos o método de Extreme Programming "XP" para maximizar a qualidade do produto final ) : Vitor Lucas Fujita Felício e Juan Caio
-                </p>
-                <br>
-                <p class="">
-                    • Implementação e compreensão da biblioteca utilizada para os gráficos (Plotly): Rafael Leal
-                </p>
-            </div>
-        </div>
-    </section>
     <section id="three" >
         <div class="equipe">
             <div class="membros">
@@ -73,7 +53,7 @@
                     RA: 22.122.067-6
                 </div>
                 <div class="me ">
-                    <img src="images/vitor_lucas.jpeg" alt="">
+                    <img src="images/vitor_lucas.jpg" alt="">
                     <h4>Vitor Lucas Fujita Felício</h4>
                     RA: 22.122.077-5
                 </div>
@@ -104,33 +84,7 @@
             </div>
         </div>
     </section> -->
-    <section id="four" class="hidden">
-        <div class="positions">
-            <div>
-                <h2 align="center" >Calcular os níveis de energia</h2><br>
-            </div>
-            <p align="center">OBS: o x tem que ser entre 0 e 9 e o y entre 0 e 6</p> <br>
-            <div class="xey hidden">
-                <input id="CalcularOsNiveisDeEnergialarguraDaCaixa" required="required" type="text">
-                <span>Largura da caixa (L)</span>
-            </div>
-            <div class="xey hidden">
-                <input id="CalcularOsNiveisDeEnergianInicial" required="required" type="text">
-                <span>n inicial da partícula (ni)</span>
-            </div>
-            <div class="xey hidden">
-                <input id="CalcularOsNiveisDeEnergianFinal" required="required" type="text">
-                <span>n final da partícula (nf)</span>
-            </div>
-            <div class="clean">
-                <button class="btn hidden" onclick="CalcularOsNiveisDeEnergia()">Entrar Valores</button>
-            </div>
-        </div>
-        <div id="respostaCalcularOsNiveisDeEnergia" >
-            <h2>Resposta: </h2>
-            <h3 class="CalcularOsNiveisDeEnergiaResposta"></h3>
-        </div>
-    </section>
+    
 
 
 
@@ -145,7 +99,7 @@
             <div>
                 <h2 align="center" >Calcular energia do nível quântico</h2><br>
             </div>
-            <p align="center">OBS: o x tem que ser entre 0 e 9 e o y entre 0 e 6</p> <br>
+            <p align="center">OBS: podem ser colocados números com notação ciêntifica</p> <br>
             <div class="xey hidden">
                 <input id="CalcularEnergiaDoNivelQuanLarguraDaCaixa" required="required" type="text">
                 <span>Largura da caixa (L)</span>
@@ -158,19 +112,68 @@
                 <input id="CalcularEnergiaDoNivelQuannFinal" required="required" type="text">
                 <span>n final da partícula (nf)</span>
             </div>
+            <div class="xey hidden">
+                <input id="protonOuEletron" required="required" type="text">
+                <span>Usar próton digite 1, usar elétron digite 2</span>
+            </div>
             <div class="clean">
                 <button class="btn hidden" onclick="CalcularEnergiaNivelQuantico()">Entrar Valores</button>
             </div>
         </div>
         <div id="respostaEnergiaDoNivelQuan" >
-            <h2>Resposta: </h2>
+            <h2>Respostas: </h2>
+            <br>
+            <h3 class="CalcularEnergiaDoNivelQuanResposta0"></h3>
+            <br>
             <h3 class="CalcularEnergiaDoNivelQuanResposta"></h3>
+            <br>
             <h3 class="CalcularEnergiaDoNivelQuanResposta2"></h3>
+            <br>
             <h3 class="CalcularEnergiaDoNivelQuanResposta3"></h3>
-            <h3 class="CalcularEnergiaDoNivelQuanResposta4"></h3>
+            <br>
         </div>
     </section>
 
+
+
+    <section id="four" class="hidden">
+        <div class="positions">
+            <div>
+                <h2 align="center" >Calcular energia do nível quântico</h2><br>
+            </div>
+            <p align="center">OBS: podem ser colocados números com notação ciêntifica</p> <br>
+            <div class="xey hidden">
+                <input id="CalcularOsNiveisDeEnergialarguraDaCaixa01" required="required" type="text">
+                <span>Amplitude (A)</span>
+            </div>
+            <div class="xey hidden">
+                <input id="CalcularOsNiveisDeEnergialarguraDaCaixa02" required="required" type="text">
+                <span>Numero de Onda (n)</span>
+            </div>
+            <div class="xey hidden">
+                <input id="CalcularOsNiveisDeEnergialarguraDaCaixa03" required="required" type="text">
+                <span>posição de x (Xp)</span>
+            </div>
+            <div class="xey hidden">
+                <input id="protonOuEletron" required="required" type="number">
+                <span>Usar próton digite 1, usar elétron digite 2</span>
+            </div>
+            
+            <div class="clean">
+                <button class="btn hidden" onclick="CalcularCaixaLargura()">Entrar Valores</button>
+            </div>
+        </div>
+        <div id="respostaCalcularCaixaLargura" >
+            <h2>Respostas: </h2>
+            <br>
+            <h3 class="CalcularCaixaLargura0"></h3>
+            <br>
+            <h3 class="CalcularCaixaLargura1"></h3>
+            <br>
+            <h3 class="CalcularCaixaLargura2"></h3>
+            <br>
+        </div>
+    </section>
 
 
 
