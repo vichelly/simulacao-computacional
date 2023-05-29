@@ -110,7 +110,7 @@ function CalcularEnergiaNivelQuantico() {
 
     const respostaBroglie = document.querySelector(".CalcularEnergiaDoNivelQuanResposta3");
 
-    respostaBroglie.textContent = `Broglie Inicial: ${broglieInicial.toExponential(3)}  Broglie Final: ${broglieFinal.toExponential(3)}`;
+    respostaBroglie.textContent = `Broglie Inicial: ${broglieInicial.toExponential(2)}  Broglie Final: ${broglieFinal.toExponential(2)}`;
     
 
 
